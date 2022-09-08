@@ -1,0 +1,555 @@
+{
+	"info": {
+		"_postman_id": "f15e11df-d2f2-4c96-9ae8-20ad9609997c",
+		"name": "Payture API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20274599"
+	},
+	"item": [
+		{
+			"name": "PAY",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"type": "text"
+						},
+						{
+							"key": "Amount",
+							"value": "12400",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "{{$guid}}",
+							"type": "text"
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5486732058864471;EMonth=12;EYear=25;CardHolder=Ivan%20Ivanov;SecureCode=123;OrderId=e041e0f4-7a9a-32df-6ad0-f2d973b096b5;Amount=12400",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Pay?Key=Merchant&Amount=12400&OrderId={{$guid}}&PayInfo=PAN=5486732058864471;EMonth=12;EYear=25;CardHolder=Ivan%20Ivanov;SecureCode=123;OrderId=e041e0f4-7a9a-32df-6ad0-f2d973b096b5;Amount=12400&CustomFields=IP=206.68.33.242;Product=Ticket",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Pay"
+					],
+					"query": [
+						{
+							"key": "Key",
+							"value": "Merchant"
+						},
+						{
+							"key": "Amount",
+							"value": "12400"
+						},
+						{
+							"key": "OrderId",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5486732058864471;EMonth=12;EYear=25;CardHolder=Ivan%20Ivanov;SecureCode=123;OrderId=e041e0f4-7a9a-32df-6ad0-f2d973b096b5;Amount=12400"
+						},
+						{
+							"key": "CustomFields",
+							"value": "IP=206.68.33.242;Product=Ticket"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PAY3DS",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant ",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "a60a637e-2406-43e7-a3a1-758ed47c2be4",
+							"type": "text"
+						},
+						{
+							"key": "PaRes",
+							"value": "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",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Pay3DS",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Pay3DS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BLOCK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"type": "text"
+						},
+						{
+							"key": "Amount",
+							"value": "12464",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "{{$guid}}",
+							"type": "text"
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5218851946955484;EMonth=12;EYear=22;CardHolder=Ivan Ivanov;SecureCode=123;Amount=12464",
+							"type": "text"
+						},
+						{
+							"key": "CustomFields",
+							"value": "IP=215.113.41.61;Description=MyTestTransaction",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Block",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Block"
+					],
+					"query": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"disabled": true
+						},
+						{
+							"key": "Amount",
+							"value": "12573",
+							"disabled": true
+						},
+						{
+							"key": "OrderId",
+							"value": "6bffaa8d-d2c3-64c0-4327-973eb161b331",
+							"disabled": true
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5218851946955484; EMonth=12; EYear=22; CardHolder=Ivan Ivanov; SecureCode=123;OrderId=6bffaa8d-d2c3-64c0-4327-973eb161b331;Amount=12573\"",
+							"disabled": true
+						},
+						{
+							"key": "CustomFields",
+							"value": "IP=215.113.41.61;Description=MyTestTransaction;",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BLOCK3DS",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant ",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "7d4eed2c-8b2f-4a1b-8d8a-0faa1b854484",
+							"type": "text"
+						},
+						{
+							"key": "PaRes",
+							"value": "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",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Block3DS",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Block3DS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHARGE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"type": "text"
+						},
+						{
+							"key": "Amount",
+							"value": "12400",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "1edfad28-4ddc-41b0-8289-d7d8851df9ea",
+							"type": "text"
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5218851946955484;EMonth=12;EYear=22;CardHolder=Ivan%20Ivanov;SecureCode=123;OrderId=e041e0f4-7a9a-32df-6ad0-f2d973b096b5;Amount=12400",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Charge",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Charge"
+					],
+					"query": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"disabled": true
+						},
+						{
+							"key": "Amount",
+							"value": "12573",
+							"disabled": true
+						},
+						{
+							"key": "OrderId",
+							"value": "{{$randomBitcoin}}",
+							"disabled": true
+						},
+						{
+							"key": "CustomFields",
+							"value": "IP=206.68.33.242;Product=Ticket",
+							"disabled": true
+						},
+						{
+							"key": "Cheque",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "PayInfo",
+							"value": "PAN=5218851946955484; EMonth=12; EYear=22;CardHolder=Ivan%20Ivanov; SecureCode=123;OrderId=6bffaa8d-d2c3-64c0-4327-973eb161b331;Amount=12573",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REFUND",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "de9b0d9c-f0c3-4bf6-ac8a-9de76143c80f",
+							"type": "text"
+						},
+						{
+							"key": "Amount",
+							"value": "12400",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/Refund",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"Refund"
+					],
+					"query": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"disabled": true
+						},
+						{
+							"key": "Password",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "OrderId",
+							"value": "1edfad28-4ddc-41b0-8289-d7d8851df9ea",
+							"disabled": true
+						},
+						{
+							"key": "Amount",
+							"value": "12400",
+							"disabled": true
+						},
+						{
+							"key": "Cheque",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetState",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"type": "text"
+						},
+						{
+							"key": "OrderId",
+							"value": "de9b0d9c-f0c3-4bf6-ac8a-9de76143c80f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3.payture.com/api/GetState",
+					"protocol": "https",
+					"host": [
+						"sandbox3",
+						"payture",
+						"com"
+					],
+					"path": [
+						"api",
+						"GetState"
+					],
+					"query": [
+						{
+							"key": "Key",
+							"value": "Merchant",
+							"disabled": true
+						},
+						{
+							"key": "Password",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "OrderId",
+							"value": "1edfad28-4ddc-41b0-8289-d7d8851df9ea",
+							"disabled": true
+						},
+						{
+							"key": "Amount",
+							"value": "12400",
+							"disabled": true
+						},
+						{
+							"key": "Cheque",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACSUrl",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "TermUrl",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "MD",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox3-3ds.payture.com/simulp3ds/ACS/?TermUrl={TermUrl}&MD={ThreeDSKey)&PaReq={PaReq}",
+					"protocol": "https",
+					"host": [
+						"sandbox3-3ds",
+						"payture",
+						"com"
+					],
+					"path": [
+						"simulp3ds",
+						"ACS",
+						""
+					],
+					"query": [
+						{
+							"key": "TermUrl",
+							"value": "{TermUrl}"
+						},
+						{
+							"key": "MD",
+							"value": "{ThreeDSKey)",
+							"description": "Соответствует параметру ThreeDSKey из ответа на запрос Pay или Block"
+						},
+						{
+							"key": "PaReq",
+							"value": "{PaReq}",
+							"description": "Cоответствует параметру PaReq из ответа на запрос Pay или Block"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "query",
+			"value": "404",
+			"type": "string"
+		}
+	]
+}
