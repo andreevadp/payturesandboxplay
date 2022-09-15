@@ -1,4 +1,4 @@
-<p># payturesandboxplay<br /><strong>Payture API Testing</strong> <br />Для самостоятельной практической работы я выбрала тестирование API сервиса Payture&nbsp;</p>
+<p># payturesandboxplay<br /><strong>Payture API Testing</strong> <br />Для своей первой самостоятельной практической работы я выбрала тестирование API сервиса Payture&nbsp;</p>
 <p>JSON файл моей коллекции включает в себя все нижеприведенные команды.<br />Все операции выполнялись методом <strong>POST</strong>, передавая параметры в теле запроса.</p>
 <p>Доступные команды:</p>
 <ul>
